@@ -23,3 +23,8 @@ options:
   split time array in the format of [(0, 2400),(2400, 4800)], numbers are in seconds
 
 Gao lab mzml splitter 1.0, https://lab.gy, contact: yugao@uic.edu
+
+
+# mzml_extractor.py
+
+mzml_extractor.py provides example code to extract specific spectra from a given mzml file, note that this script extract only part of the file, not including the index and other part of the mzml.
