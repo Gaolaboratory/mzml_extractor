@@ -28,3 +28,7 @@ Gao lab mzml splitter 1.0, https://lab.gy, contact: yugao@uic.edu
 # mzml_extractor.py
 
 mzml_extractor.py provides example code to extract specific spectra from a given mzml file, note that this script extract only part of the file, not including the index and other part of the mzml.
+
+
+# U3000Nano_dual_column_10samples_method_60min.meth and U3000Nano_dual_column_10samples_method_35min.meth
+These two are example instrument method files for QE-HF coupled with Ultimate 3000, showing how to set up the 10 consecutive runs with our dual-trap dual-column system.
