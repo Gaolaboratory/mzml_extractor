@@ -5,15 +5,17 @@ import os
 import time
 import sys
 
-def split_mzml_by_time(mzml_path, rt_ranges):
+def split_mzml_by_time(mzml_path, rt_ranges, prefix=""):
     ### rt_ranges should be a list of tuple to indicate the start and end time
     ### examples of rt_ranges: [(0,2400),(2400,4800)]
     ### the splited mzml files will be saved into the same path as orginal mzml file
     start_time = time.time()
     mzml_file = mzml_path
     rt_ranges = rt_ranges
+    if prefix == "":
+        prefix = os.path.basename(mzml_file)
     for i, (start, stop) in enumerate(rt_ranges):
-        output_file = os.path.join(os.path.dirname(mzml_file), f"1_{i + 1}_rt_{start}-{stop}.mzML")
+        output_file = os.path.join(os.path.dirname(mzml_file), f"%s_{i + 1}_rt_{start}-{stop}.mzML"%prefix)
         exp = ms.MSExperiment()
         ms.MzMLFile().load(mzml_file, exp)
         print(time.time() - start_time)
