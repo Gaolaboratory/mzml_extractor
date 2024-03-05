@@ -44,3 +44,6 @@ mzml_extractor.py provides example code to extract specific spectra from a given
 
 ### U3000Nano_dual_column_10samples_method_60min.meth and U3000Nano_dual_column_10samples_method_35min.meth
 These two are example instrument method files for QE-HF coupled with Ultimate 3000, showing how to set up the 10 consecutive runs with our dual-trap dual-column system.
+
+# retention_time_delta.py
+This file is used to determine the exact runtime, in case there is unexpected delay not reported by the instrument. For example, our instrument reported an exact 35 minutes runtime, but there is a 49s delay that was ignored by the instrument. Here we can first split the mzml file using just assumed runtime, 35min, then search the data with MSFragger. The resulted psm.tsv file from the first (0-35min) and second (35-70min) run could be used here to determine the exact real runtime for the sample.
