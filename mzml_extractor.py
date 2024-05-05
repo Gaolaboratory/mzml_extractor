@@ -1,6 +1,6 @@
 import argparse
 import mmap
-
+import sys
 
 # general function to find all string pairs in file using mmap
 def find_string(mzml_read_fp, match_tag_start, match_tag_end):
@@ -30,6 +30,10 @@ if __name__ == '__main__':
     parser.add_argument('-s', '--start_time', help='start time in minute')
     parser.add_argument('-e', '--end_time', help='end time in minute, must be bigger than start time')
     args = parser.parse_args()
+
+    if len(sys.argv) == 1:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
 
     start = float(args.start_time)
     end = float(args.end_time)
